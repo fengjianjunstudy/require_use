@@ -45,13 +45,19 @@ define(function(){
 		},
 		deleteCookie:function(key){ 
 			if(!key){ 
+				var slice=Array.prototype.slice,
+					args=slice.apply(arguments,1);
 				for(var name in this.cookies){ 
-					document.cookie=name+"=; max-age=0";
+					//document.cookie=name+"=; max-age=0";
+					args.unshift(name)
+					this.setCookie.apply(this,arguments);
+					args.shift();
 				}
 				this.cookies={};
 				this.length=0;
 			}else{
-				document.cookie=key+"=; max-age=0";
+				//document.cookie=key+"=; max-age=0";
+				this.setCookie.apply(this,arguments)
 				delete this.cookies[key];
 				this.length--;
 			}
