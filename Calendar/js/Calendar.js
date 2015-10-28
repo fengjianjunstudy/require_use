@@ -83,11 +83,13 @@ define(["jquery"],function($){
 		},
 		setTimeYear:function(num){ 
 			this.time.setFullYear(num);
-			this.parseDate();
+			var dateObj=this.parseDate();
+			this.disDom(dateObj);
 		},
 		setTimeMonth:function(num){ 
 			this.time.setMonth(num);
-			this.parseDate();
+			var dateObj=this.parseDate();
+			this.disDom(dateObj);
 		},
 		parseDate:function(){ 
 			var dateObj={},
