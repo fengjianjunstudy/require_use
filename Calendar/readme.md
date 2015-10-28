@@ -13,4 +13,7 @@
 
 	box 日历的容器 在没有设置的情况下  默认为body
 
+	callback  option  Function   自定义函数默认的前三个参数是 year month(从1开始) day 三个  返回值必须是需要添加到对应li中的字符串
 
+
+	http://ershisijieqi.baike.com/article-284624.html
