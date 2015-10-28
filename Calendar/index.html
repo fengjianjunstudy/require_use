@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>日历</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		html,body{font-family: "微软雅黑"}
+		ul,li{ list-style: none;}
+		.cal_box{ width:350px;margin:20px auto; border: 1px solid #ccc; border-radius: 10px 10px 0 0;overflow: hidden;}
+		.cal_head{ height: 50px; border-bottom: 1px solid #ccc; background-color: #f1f1f1; text-align: center; padding-top: 15px;box-sizing: border-box}
+		.cal_head span{ display: inline-block; width: 20px; height: 20px; line-height: 20px; border:1px solid #ddd;  background-color: #fefefe;border-radius: 3px; cursor: pointer;  color: #c00;}
+		.cal_head input{ line-height: 20px; width: 50px; border:none; outline: none; height: 20px; text-align: center; border:1px solid #ddd;vertical-align: top; margin:0 10px;}
+		.cal_head #sure{width: 50px; cursor: pointer; margin-left: 5px;}
+		.week_list{ overflow: hidden;}
+		.week_list li{ float: left; width: 50px; line-height: 30px; height: 30px; font-size: 16px; font-weight: bold; color: #c00; text-align: center; }
+		.day_list{ overflow: hidden;}
+		.day_list li{ width: 50px; float: left; text-align: center; font-size: 14px; color: #666; line-height: 30px; height: 30px;}
+		.day_list li.cur{ color: #c00; text-decoration: underline; background-color: #cfc;}
+		.year_sub{ margin-right: 20px;}
+	</style>
+</head>
+<body>
+<script type="text/javascript" data-main="js/main" src="../require.js"></script>
+</body>
+</html>
