@@ -32,50 +32,50 @@ define(["jquery"],function($){
 			this.hasInit=true;
 			var _self=this;
 			//年份增加
-			$(".year_add").on("click",function(){ 
-				var yearVal=$("#year").val();
+			$(this.box+" .year_add").on("click",function(){ 
+				var yearVal=$(_self.box+" .year").val();
 				_self.setTimeYear(++yearVal);
-				$("#year").val(yearVal)
+				$(_self.box+" .year").val(yearVal)
 			})
 			//年份减少
-			$(".year_sub").on("click",function(){
-				var yearVal=$("#year").val();
+			$(this.box+" .year_sub").on("click",function(){
+				var yearVal=$(_self.box+" .year").val();
 				yearVal=(yearVal<=1970)?1970:--yearVal
 				_self.setTimeYear(yearVal);
-				$("#year").val(yearVal)
+				$(_self.box+" .year").val(yearVal)
 			})
 			//月增加
-			$(".month_add").on("click",function(){ 
-				var monthVal=$("#month").val();
+			$(this.box+" .month_add").on("click",function(){ 
+				var monthVal=$(_self.box+" .month").val();
 				monthVal=(monthVal>=12)?12:++monthVal;
 				_self.setTimeMonth(monthVal-1);
-				$("#month").val(monthVal)
+				$(_self.box+" .month").val(monthVal)
 			})
 			//月减少
-			$(".month_sub").on("click",function(){
-				var monthVal=$("#month").val();
+			$(this.box+" .month_sub").on("click",function(){
+				var monthVal=$(_self.box+" .month").val();
 				monthVal=(monthVal<=1)?1:--monthVal;
 				_self.setTimeMonth(monthVal-1);
-				$("#month").val(monthVal)
+				$(_self.box+" .month").val(monthVal)
 			})
 			//year 文本框中的内容改变
-			$("#year").on("change",function(){ 
+			$(this.box+" .year").on("change",function(){ 
 				var yearVal=$(this).val();
 				yearVal=(yearVal<=1970)?1970:yearVal;
 				_self.setTimeYear(yearVal);
-				$("#year").val(yearVal)
+				$(this).val(yearVal)
 
 			})
 			//month 文本框中的内容改变
-			$("#month").on("change",function(){ 
+			$(this.box+" .month").on("change",function(){ 
 				var monthVal=$(this).val();
 				monthVal=(monthVal<=1 || monthVal>=12)?1:monthVal;
-				$("#month").val(monthVal)
+				$(this).val(monthVal)
 				_self.setTimeMonth(--monthVal);
 
 			})
 			//确定
-			$("#sure").on("click",function(){ 
+			$(this.box+" .sure").on("click",function(){ 
 				var dateObj=_self.parseDate();
 				_self.disDom(dateObj);
 			})
@@ -131,7 +131,7 @@ define(["jquery"],function($){
 				var year_add=$("<span></span>",{"class":"btn year_add"});
 				year_add.html("+")
 				head.append(year_add);
-				var year_input=$("<input/>",{"type":"text","id":"year","value":dateObj.year})
+				var year_input=$("<input/>",{"type":"text","class":"year","value":dateObj.year})
 				head.append(year_input);
 				var year_sub=$("<span></span>",{"class":"btn year_sub"});
 				year_sub.html("-")
@@ -139,12 +139,12 @@ define(["jquery"],function($){
 				var month_add=$("<span></span>",{"class":"btn month_add"});
 				month_add.html("+")
 				head.append(month_add);
-				var month_input=$("<input/>",{"type":"text","id":"month","value":dateObj.month+1})
+				var month_input=$("<input/>",{"type":"text","class":"month","value":dateObj.month+1})
 				head.append(month_input);
 				var month_sub=$("<span></span>",{"class":"btn month_sub"});
 				month_sub.html("-")
 				head.append(month_sub);
-				var sureBtn=$("<span id='sure'>确定</span>")
+				var sureBtn=$("<span class='sure'>确定</span>")
 				head.append(sureBtn)
 				var week_list=$("<ul></ul>",{"class":"week_list"});
 				week_list.html("<li>日</li><li>一</li><li>二</li><li>三</li><li>四</li><li>五</li><li>六</li>")
