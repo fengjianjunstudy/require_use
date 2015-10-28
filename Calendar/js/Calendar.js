@@ -16,7 +16,9 @@ define(["jquery"],function($){
 		*/
 		this.box=opt.box || "body";
 		this.time=new Date(opt.time) ||new Date();
+		this.callback=opt.callback;
 		this.hasInit=false;
+
 		if(!(this instanceof Calendar)){ 
 			return new Calendar(opt)
 		}
@@ -156,14 +158,23 @@ define(["jquery"],function($){
 				$(this.box).append(cal)	
 			}
 			var day_list=$(".day_list");
-			var day=dateObj.day
+			var day=dateObj.day;
+			var year=this.time.getFullYear();
+			var month=this.time.getMonth()+1;
+			var callback=this.callback;
 			var htmlStr="";
 			for(var i=1;i<=42;i++){ 
 				if(i<=dateObj.n){ 
 					htmlStr+="<li></li>";
 
 				}else if((i-dateObj.n)<=dateObj.day){ 
-					htmlStr+="<li>"+(i-dateObj.n)+"</li>";
+					var liStr="";
+					if(typeof callback ==="function"){ 
+						var dateStr=callback(year,month,(i-dateObj.n))
+					}else{ 
+						var dateStr=i-dateObj.n;
+					}
+					htmlStr+="<li>"+dateStr+"</li>";
 				}
 			}
 			day_list.html(htmlStr)
