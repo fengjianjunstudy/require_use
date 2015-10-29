@@ -15,9 +15,11 @@
 		.week_list{ overflow: hidden; }
 		.week_list li{ float: left; width: 100px; line-height: 30px; height: 30px; font-size: 16px; font-weight: bold; color: #c00; text-align: center; }
 		.day_list{ overflow: hidden;margin-top: 20px}
-		.day_list li{ width: 100px; float: left; text-align: center; font-size: 14px; color: #666; line-height: 20px; height: 60px;position:relative;}
+		.day_list li{ cursor: pointer; width: 100px; float: left; text-align: center; font-size: 14px; color: #666; line-height: 20px; height: 60px;position:relative;}
+		.day_list li:hover{ background-color: #f1f1f1;}
+		.day_list li.cur{ background-color: #cff;}
 		.day_list li span{position: absolute; left: 50%;  background-color:#c00; bottom:5px; width: 8px; height: 8px; border-radius: 50%; margin-left: -4px;}
-		.day_list li.cur{ color: #c00; text-decoration: underline; background-color: #cfc;}
+		.day_list li.cur{background-color: #cfc;}
 		.year_sub{ margin-right: 20px;}
 		.day_list li div{ font-size: 12px;}
 		.day_list li div.c1{ color: #c00; font-weight: bolder;}

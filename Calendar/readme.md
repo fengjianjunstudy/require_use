@@ -15,5 +15,12 @@
 
 	callback  option  Function   自定义函数默认的前三个参数是 year month(从1开始) day 三个  返回值必须是需要添加到对应li中的字符串
 
+	hasChinaDay  设置为true时 显示农历、节气  否则不显示  默认情况为false 不显示
+
+	callback 没有设置时  hasChinaDay的设置不起作用
+
+	data.js  自定义数据
+
+
 
 	http://ershisijieqi.baike.com/article-284624.html

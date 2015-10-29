@@ -16,6 +16,7 @@ define(function(){
     function CnMonthofDate(DateGL) {
         var CnMonthStr = new Array("零", "正", "二", "三", "四", "五", "六", "七", "八", "九", "十", "冬", "腊");
         var Month;
+        console.log(CnDateofDate(DateGL))
         Month = parseInt(CnDateofDate(DateGL) / 100);
         if (Month < 0) {
             return "闰" + CnMonthStr[-Month] + "月";

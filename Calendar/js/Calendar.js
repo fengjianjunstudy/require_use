@@ -14,15 +14,17 @@ define(["jquery"],function($){
 			@property box  日历的容器
 			@property time 时间
 		*/
-		this.box=opt.box || "body";
-		this.time=new Date(opt.time) ||new Date();
-		this.hasChinaDay=opt.hasChinaDay;
-		this.callback=opt.callback;
-		this.hasInit=false;
-
+		opt=opt || {}
 		if(!(this instanceof Calendar)){ 
 			return new Calendar(opt)
 		}
+		this.box=opt.box || "body";
+		this.time=opt.time?new Date(opt.time):new Date();
+		console.log(this.time)
+		this.hasChinaDay=opt.hasChinaDay || false;
+		this.callback=opt.callback;
+		this.oldTime="";
+		this.hasInit=false;
 		this.init();
 	}
 	Calendar.prototype={
@@ -31,6 +33,7 @@ define(["jquery"],function($){
 			if(this.hasInit){ 
 				return ;
 			}
+			this.oldTime=this.parseDate();
 			this.disDom(this.parseDate());
 			this.hasInit=true;
 			var _self=this;
@@ -100,10 +103,10 @@ define(["jquery"],function($){
 			dateObj.year=this.time.getFullYear();
 			dateObj.month=this.time.getMonth();
 			dateObj.week=this.time.getDay();
+			dateObj.curDay=this.time.getDate();
 			newDate=new Date(dateObj.year,dateObj.month,1);
 			dateObj.n=newDate.getDay();
 			dateObj.day=getDayNum(dateObj.year,dateObj.month+1)
-			
 			function getDayNum(year,month){ 
 				var veadar=!(year%400)||(!(year%4)&&(year%100));
 				var num;
@@ -175,7 +178,12 @@ define(["jquery"],function($){
 					}else{ 
 						var dateStr=i-dateObj.n;
 					}
-					htmlStr+="<li>"+dateStr+"</li>";
+					if((""+year+month+(i-dateObj.n)) ===(""+this.oldTime.year+(this.oldTime.month+1)+this.oldTime.curDay)){ 
+						htmlStr+="<li class='cur'>"+dateStr+"</li>";
+					}else{ 
+						htmlStr+="<li>"+dateStr+"</li>";
+					}
+					
 				}
 			}
 			day_list.html(htmlStr)

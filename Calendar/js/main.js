@@ -10,7 +10,6 @@ require(["Calendar","data","CalculationSolarTerms","CalculationChina"],function(
 		if(data[data_key]){ 
 			liChildStr+="<span></span>";
 		}
-		console.log(data["*"+month1+day1])
 		if(hasChinaDay){ 
 			var dayObj=new Date(year,month-1,day);
 			var jieqi=SolarTerm(dayObj);
@@ -53,7 +52,7 @@ require(["Calendar","data","CalculationSolarTerms","CalculationChina"],function(
 			}	
 		}
 		
-		return liChildStr
+		return liChildStr;
 	}
 	Calendar({time:"2015,10,28",callback:handleLi,hasChinaDay:true})
 })
