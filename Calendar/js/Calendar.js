@@ -16,6 +16,7 @@ define(["jquery"],function($){
 		*/
 		this.box=opt.box || "body";
 		this.time=new Date(opt.time) ||new Date();
+		this.hasChinaDay=opt.hasChinaDay;
 		this.callback=opt.callback;
 		this.hasInit=false;
 
@@ -170,7 +171,7 @@ define(["jquery"],function($){
 				}else if((i-dateObj.n)<=dateObj.day){ 
 					var liStr="";
 					if(typeof callback ==="function"){ 
-						var dateStr=callback(year,month,(i-dateObj.n))
+						var dateStr=callback(year,month,(i-dateObj.n),this.hasChinaDay)
 					}else{ 
 						var dateStr=i-dateObj.n;
 					}
