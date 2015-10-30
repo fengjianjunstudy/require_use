@@ -53,9 +53,19 @@ define(["jquery"],function($){
 			//月增加
 			$(this.box+" .month_add").on("click",function(){ 
 				var monthVal=$(_self.box+" .month").val();
-				monthVal=(monthVal>=12)?12:++monthVal;
-				_self.setTimeMonth(monthVal-1);
-				$(_self.box+" .month").val(monthVal)
+				if(monthVal>=12){
+					var yearVal= $(_self.box+" .year").val();
+					monthVal=1;
+					yearVal++;
+					_self.setTime(yearVal,monthVal)
+					$(_self.box+" .year").val(yearVal)
+					$(_self.box+" .month").val(monthVal)
+				}else{ 
+					monthVal++;
+					_self.setTimeMonth(monthVal-1);
+					$(_self.box+" .month").val(monthVal)
+				}
+				
 			})
 			//月减少
 			$(this.box+" .month_sub").on("click",function(){
@@ -94,6 +104,12 @@ define(["jquery"],function($){
 		},
 		setTimeMonth:function(num){ 
 			this.time.setMonth(num);
+			var dateObj=this.parseDate();
+			this.disDom(dateObj);
+		},
+		setTime:function(year,month){
+			this.time.setFullYear(year);
+			this.time.setMonth(month);
 			var dateObj=this.parseDate();
 			this.disDom(dateObj);
 		},

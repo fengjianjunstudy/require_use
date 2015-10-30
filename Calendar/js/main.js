@@ -14,7 +14,7 @@ require(["Calendar","data","CalculationSolarTerms","CalculationChina"],function(
 			var dayObj=new Date(year,month-1,day);
 			var jieqi=SolarTerm(dayObj);
 			if(!jieqi && !data["*"+month1+day1]){ 
-				var chinaDate=china_time(dayObj)
+				var chinaDate=china_time(year,month,day)
 				switch(chinaDate){ 
 					case "正月初一":
 						liChildStr+="<div class='c1'>"+"春节"+"</div>"
@@ -54,5 +54,5 @@ require(["Calendar","data","CalculationSolarTerms","CalculationChina"],function(
 		
 		return liChildStr;
 	}
-	Calendar({time:"2015,10,28",callback:handleLi,hasChinaDay:true})
+	Calendar({time:"2015,10,30",callback:handleLi,hasChinaDay:true})
 })

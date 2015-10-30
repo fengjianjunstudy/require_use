@@ -14,6 +14,7 @@ define(function(){
         var DifferenceInYear = 31556926;
         var BeginTime = new Date(1901 / 1 / 1);
         BeginTime.setTime(947120460000);
+        count=0;
         for (; DateGL.getFullYear() < BeginTime.getFullYear();) {
             BeginTime.setTime(BeginTime.getTime() - DifferenceInYear * 1000);
         }
