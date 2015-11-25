@@ -8,12 +8,12 @@ requirejs.config({
 requirejs(["jquery","app/reg"],function($,reg){
 	var data={
 		dom:"#user_name",
-		insertTag:"div",
+		tag:"div",
 		//eType:"change",
-		vTypes:["isNonEmpty","isNumber"],
-		errMes:["用户名不能为空","用户名只能为数字"],
-		errClass:"err",
-		rightClass:"right"
+		vtypes:["isNonEmpty","isNumber"],
+		emes:["用户名不能为空","用户名只能为数字"],
+		eclass:"err",
+		rclass:"right"
 	}
 	reg(data)
 	reg()

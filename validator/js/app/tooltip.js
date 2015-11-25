@@ -4,6 +4,7 @@ define(["jquery"],function(){
 			return new ToolTip(tips);
 		}
 		this.tips=tips;
+		console.log(this.tips)
 		this.tNode=null;
 		this.init();
 	}
