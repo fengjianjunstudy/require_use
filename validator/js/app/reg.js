@@ -4,7 +4,6 @@ define(["jquery","app/tooltip","app/validat"],function($,tooltip,validator){
 			return new Reg(data);
 		}
 		this.data=data;
-		console.log(data)
 		this.oTips={};
 		this.init();
 	}
@@ -12,7 +11,6 @@ define(["jquery","app/tooltip","app/validat"],function($,tooltip,validator){
 		constructor:"Reg",
 		init:function(){
 			var self=this;
-			
 			if(!this.data){
 				var allNode=$(".J_v");
 				var len=allNode.length;
@@ -36,7 +34,6 @@ define(["jquery","app/tooltip","app/validat"],function($,tooltip,validator){
 				this.oTips.eClass=this.data.errClass || "v_err";
 				this.oTips.rClass=this.data.rightClass || "v_right";
 				oDom.on(eType,function(){
-					console.log(self.data)
 					self.oTips.selfNode=$(this);
 					self.oTips.pNode=self.data.pNode || $(this).parent();
 					var i=0,
@@ -51,7 +48,6 @@ define(["jquery","app/tooltip","app/validat"],function($,tooltip,validator){
 								continue;
 							}
 							var flag=validator[vTypes[i]](val);
-							console.log(flag)
 							if(flag &&((i+1)===len)){
 								tooltip(self.oTips).rightFn();
 							}else if(!flag){

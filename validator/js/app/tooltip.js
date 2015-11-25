@@ -14,7 +14,6 @@ define(["jquery"],function(){
 			this.insertNode();
 		},
 		insertNode:function(){
-			console.log(this.tips.pNode.find(".J_tip"))
 			if(this.tips.pNode.find(this.tips.tag).is(".J_tip")){
 				this.tips.pNode.find(".J_tip").remove();
 			}
