@@ -6,11 +6,12 @@
 	<style type="text/css">
 		*{padding: 0;maring:0;}
 		ul,li{list-style: none}
-		.form_ul{ width: 500px; padding: 30px 20px; border:1px solid #ccc; margin:30px auto;}
+		.form_ul{ width: 600px; padding: 30px 20px; border:1px solid #ccc; margin:30px auto;}
 		.form_ul li{ line-height: 40px; border-bottom: 1px dashed #eee;}
 		.form_ul li:last-child{ border: none;}
 		.form_ul li label{ display: inline-block; width: 150px; text-align: right; margin-right: 10px; font-size: 14px; color: #333; font-weight: bold;}
 		.form_ul li input.input_box{border:1px solid #ccc; width: 200px;height: 24px; line-height: 24px; padding: 0 10px;outline: none;border-radius: 3px; font-size: 14px; color: #666;}
+		.form_ul span{ margin-left: 10px;}
 		.form_ul li input:focus{ border-color: #c00;}
 		.submit{ display: block; margin:30px  auto 0; width: 100px; height: 30px; line-height: 30px; border:none; outline: none; background-color: #c00; color: #fff; font-size: 14px; cursor: pointer;}
 		.submit:hover{ background-color: rgba(221,0,0,0.8);}
@@ -20,8 +21,10 @@
 	<form action="#" method="post">
 		<ul class="form_ul">
 			<li><label for="user_name">用户名：</label><input type="text" id="user_name" class="input_box"></li>
-			<li><label for="china_name">姓名：</label><input type="text" id="china_name" class="input_box J_v" data-tag="div" data-etype="change" data-vtypes="isNonEmpty" data-emes="姓名不能为空" data-eclass="err" data-rclass="right"></li>
-			<li><label for="pwd">密码：</label><input type="password" id="pwd" class="input_box J_v" data-tag="div" data-etype="blur" data-vtypes="isNonEmpty isNumber" data-emes="用户名不能为空     用户名只能为数字" data-eclass="err" data-rclass="right"></li>
+			<li><label for="china_name">姓名：</label><input type="text" id="china_name" class="input_box J_v" data-etype="change" data-vtypes="isNonEmpty" data-emes="姓名不能为空" data-eclass="err" data-rclass="right"></li>
+			<!-- <li><label for="china_name">姓名：</label><input type="text" id="china_name" class="input_box J_v" data-tag="div" data-etype="change" data-vtypes="isNonEmpty" data-emes="姓名不能为空" data-eclass="err" data-rclass="right"></li> -->
+			<li><label for="pwd">密码：</label><input type="password" id="pwd" class="input_box J_v" data-etype="blur" data-vtypes="isNonEmpty isNumber" data-emes="用户名不能为空     用户名只能为数字" data-eclass="err" data-rclass="right"></li>
+			<!-- <li><label for="pwd">密码：</label><input type="password" id="pwd" class="input_box J_v" data-tag="div" data-etype="blur" data-vtypes="isNonEmpty isNumber" data-emes="用户名不能为空     用户名只能为数字" data-eclass="err" data-rclass="right"></li> -->
 			<li><input type="submit" value="登录" class="submit"></li>
 		</ul>
 	</form>

@@ -6,6 +6,7 @@ define(["jquery","app/tooltip","app/validat"],function($,tooltip,validator){
 		this.data=data;
 		this.oTips={};
 		this.init();
+		console.log(this.oTips)
 	}
 	Reg.prototype={
 		constructor:"Reg",
@@ -19,8 +20,10 @@ define(["jquery","app/tooltip","app/validat"],function($,tooltip,validator){
 					data.dom=allNode[i];
 					data.tag=$(allNode[i]).data("tag");
 					data.etype=$(allNode[i]).data("etype");
-					data.vtypes=$.trim($(allNode[i]).data("vtypes")).replace(/\s+/i," ").split(" ");
-					data.emes=$.trim($(allNode[i]).data("emes")).replace(/\s+/i," ").split(" ");
+					//data.vtypes=$.trim($(allNode[i]).data("vtypes")).replace(/\s+/i," ").split(" ");
+					data.vtypes=$.trim($(allNode[i]).data("vtypes")).split(/\s+/g);
+					//data.emes=$.trim($(allNode[i]).data("emes")).replace(/\s+/i," ").split(" ");
+					data.emes=$.trim($(allNode[i]).data("emes")).split(/\s+/g);
 					data.eclass=$(allNode[i]).data("eclass")
 					data.rclass=$(allNode[i]).data("rclass");
 					data.pNode=$(allNode[i]).data("pNode");
@@ -34,8 +37,8 @@ define(["jquery","app/tooltip","app/validat"],function($,tooltip,validator){
 				this.oTips.tag=this.data.tag || "span";
 				this.oTips.eclass=this.data.eclass || "v_err";
 				this.oTips.rclass=this.data.rclass || "v_right";
-				console.log(etype)
 				odom.on(etype,function(){
+
 					self.oTips.selfNode=$(this);
 					self.oTips.pNode=self.data.pNode || $(this).parent();
 					var i=0,

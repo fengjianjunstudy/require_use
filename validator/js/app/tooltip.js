@@ -3,10 +3,11 @@ define(["jquery"],function(){
 		if(!(this instanceof ToolTip)){
 			return new ToolTip(tips);
 		}
+
 		this.tips=tips;
-		console.log(this.tips)
 		this.tNode=null;
 		this.init();
+		return this;
 	}
 	ToolTip.prototype={
 		constructor:ToolTip,
@@ -26,10 +27,10 @@ define(["jquery"],function(){
 			this.tNode.attr("class","J_tip");
 		},
 		rightFn:function(){
-			this.tNode.addClass(this.tips.rClass)
+			this.tNode.addClass(this.tips.rclass)
 		},
 		errFn:function(){
-			this.tNode.addClass(this.tips.eClass)
+			this.tNode.addClass(this.tips.eclass)
 		}
 	}
 	return ToolTip;
