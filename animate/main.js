@@ -1,3 +1,4 @@
+console.log("eee")
 requirejs.config({
 	baseUrl:"js/bin",
 	paths:{
