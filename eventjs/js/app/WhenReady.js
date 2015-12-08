@@ -13,6 +13,8 @@ var WhenReady=(function(){
 		for(var i=0;i<funcs.length;i++){
 			funcs[i].call(document)
 		}
+		ready=true;
+		funcs=null;
 	}
 	if(document.addEventListener){
 		document.addEventListener("readystatechange",handler,false);
